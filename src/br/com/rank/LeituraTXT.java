@@ -4,7 +4,11 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import javax.swing.plaf.SliderUI;
 
 public class LeituraTXT {
 
@@ -15,8 +19,9 @@ public class LeituraTXT {
 	/**
 	 * metodo para ler uma lista de arquivos txt como entrada.
 	 * @throws IOException 
+	 * @throws InterruptedException 
 	 */
-	public void leituraListaArquivo() throws IOException {
+	public void leituraListaArquivo() throws IOException, InterruptedException {
 		
 		String[] arquivoEntrada = null;
 		
@@ -25,6 +30,10 @@ public class LeituraTXT {
 		//Imprimindo a lista de entradas
 		for(int i=0; i<arquivoEntrada.length; i++) {
 			System.out.println("teste: " + arquivoEntrada[i]);
+			if(arquivoEntrada[i] == null){
+				System.out.println("NULO AQUI LINHA 34");
+			}
+			
 		}
 		
 		try {
@@ -36,11 +45,16 @@ public class LeituraTXT {
 	}
 	
 	
-	public void leituraArquivoUnico(String arquivo) throws IOException {
+	@SuppressWarnings("null")
+	public void leituraArquivoUnico(String arquivo) throws IOException, InterruptedException {
 		
 		FileReader arquivoEntrada = new FileReader(arquivo);
 		BufferedReader arquivoDeEntrada = new BufferedReader(arquivoEntrada);
 		
+		List<Integer> valorCliente = new ArrayList<>();
+		List<Integer> valorAvaliacao = new ArrayList<>();
+		
+		List<String> todasLinhas = new ArrayList<>();	
 		
 		//Lendo cada linha do arquivo TXT
 		String linha = arquivoDeEntrada.readLine();
@@ -48,17 +62,42 @@ public class LeituraTXT {
 		
 		System.out.println("Nome da Empresa: " + linha);
 		
+		//todasLinhas.add(linha);
+		
 		while(linha != null) {
 			linha = arquivoDeEntrada.readLine();
 			
 			if(linha != null) {
+				
+				todasLinhas.add(linha);
+				
 				System.out.printf("%s\n", linha);
 			}
 		}
 		arquivoEntrada.close();
 		
+		System.out.println("Imprimindo a lista: ");
+		
+		for(String listaCompleta : todasLinhas) {
+			
+			String[] testando = listaCompleta.split(" ");
+			
+			System.out.println(testando[0]);
+			System.out.println(testando[1]);
+			
+			Thread.sleep(1000);
+			
+			valorCliente.add(Integer.parseInt(testando[0]));
+			valorAvaliacao.add(Integer.parseInt(testando[1]));
+			
+		}
 	}
 	
+	
+	public void efetuaCalculo(List<Integer> clientes, List<Integer> avaliacoes) {
+		
+		
+	}
 	
 }
 
