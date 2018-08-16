@@ -96,6 +96,39 @@ public class LeituraTXT {
 	
 	public void efetuaCalculo(List<Integer> clientes, List<Integer> avaliacoes) {
 		
+		int cliente4567 = 4567;
+		int cliente4568 = 4568;
+		int cliente4569 = 4569;
+		int cliente4570 = 4570;
+		int cliente4571 = 4571;
+		
+		int contadorDeAvaliacoes = 0;
+		
+		int avaliacao[] = {0,1,2,3,4};
+		
+		for(int i=0; i<clientes.size(); i++) {
+			if(clientes.get(i) == cliente4567) {
+				avaliacao[i] = avaliacoes.get(i);
+			}
+			
+			if(clientes.get(i) == cliente4568) {
+				avaliacao[i] = avaliacoes.get(i);
+			}
+			
+			if(clientes.get(i) == cliente4569) {
+				avaliacao[i] = avaliacoes.get(i);
+			}
+			
+			if(clientes.get(i) == cliente4570) {
+				avaliacao[i] = avaliacoes.get(i);
+			}
+			
+			if(clientes.get(i) == cliente4571) {
+				avaliacao[i] = avaliacoes.get(i);
+			}
+		}	
+		
+		
 		
 	}
 	
